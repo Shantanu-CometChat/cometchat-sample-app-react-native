@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
-        
+
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
@@ -54,6 +54,10 @@ jobs:
 
       - name: Print Folder Structure
         run: tree -d
+
+      - name: Print ls
+          run: |
+            ls android/app/build/outputs/apk/debug 
 
       # - name: Upload to Firebase App Distribution
       #   uses: w9jds/firebase-action@master
