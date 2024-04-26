@@ -60,7 +60,7 @@ jobs:
           ls android/app/build/outputs/apk/debug 
 
       - name: Upload to Firebase App Distribution
-        uses: w9jds/firebase-action@master
+        uses: w9jds/firebase-action@v12.9.0 
         with:
           args: appdistribution:distribute ./android/app/build/outputs/apk/debug/app-debug.apk --app 1:922841099843:android:ff699aa75a8b3cfe866ef6 --groups sampleAppTesters 
       # <remove this as its a test to add release notes > --release-notes ${{ steps.last_commit.outputs.message }}
