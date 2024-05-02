@@ -2,7 +2,7 @@
   <img alt="CometChat" src="https://assets.cometchat.io/website/images/logos/banner.png">
 </p>
 
-# React Native Sample App by CometChat
+# React Native Sample App by CometChats
 
 This is a reference application showcasing the integration of [CometChat's React Native UI Kit](https://www.cometchat.com/docs/v4/react-native-uikit/overview) in React Native. It offers developers practical examples for incorporating real-time messaging, as well as voice and video calling functionalities, into their React Native-based applications.
 <table>    
