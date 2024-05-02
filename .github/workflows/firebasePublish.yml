@@ -36,10 +36,10 @@ jobs:
         run: mv ./temp/react_native/AppConstants.ts ./  
 
       - name: Copy APP build.gralde
-        run: cp -f ./react_native/app/build.gradle ./android/app/build.gradle
+        run: cp -f ./temp/react_native/app/build.gradle ./android/app/build.gradle
 
       - name: Copy APP build.gralde
-        run: cp -f ./react_native/build.gradle ./android/build.gradle
+        run: cp -f ./temp/react_native/build.gradle ./android/build.gradle
 
 
       - name: Remove temp directory if exists
