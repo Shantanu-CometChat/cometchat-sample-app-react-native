@@ -13,13 +13,13 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 20  # Use latest LTS version
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: 20  # Use latest LTS version
 
-      - name: Install dependencies
-        run: npm i        
+      # - name: Install dependencies
+      #   run: npm i        
 
 
       - name: Checkout private repo with google-services.json
@@ -30,22 +30,44 @@ jobs:
           path: ./temp
 
       - name: Move google-services.json
-        run: mv ./temp/firebase_react_native/google-services.json ./android/app/
+        run: mv ./temp/react_native/google-services.json ./android/app/
 
+      - name: Move APPConstant
+        run: mv ./temp/react_native/AppConstants.ts ./  
+
+      - name: Copy APP build.gralde
+        run: cp -f ./react_native/app/build.gradle ./android/app/build.gradle
+
+      - name: Copy APP build.gralde
+        run: cp -f ./react_native/build.gradle ./android/build.gradle
+
+
+      - name: Remove temp directory if exists
+        run: rm -rf ./temp  
         
-      - name: Modify build.gradle
-        run: |
-          sed -i '/kotlin-gradle-plugin/a \ \ \ \ \ \ \ \ \ \ \ \ classpath('\''com.google.gms:google-services:4.4.1'\'')' ./android/build.gradle
+      # - name: Modify build.gradle
+      #   run: |
+      #     sed -i '/kotlin-gradle-plugin/a \ \ \ \ \ \ \ \ \ \ \ \ classpath('\''com.google.gms:google-services:4.4.1'\'')' ./android/build.gradle
 
 
-      - name: Verify changes
+      - name: Verify changes in build.gralde
         run: cat ./android/build.gradle      
 
-      - name: Verify changes
+      - name: Verify changes in app build.gradle
+        run: cat ./android/app/build.gradle
+
+      - name: Verify changes in APp constants
         run: cat ./android/app/build.gradle
 
       - name: Check directory structure in android folder
         run: ls -R ./android
+
+
+
+
+
+
+
 #not needed
       # - name: Delete Branch
       #   run: |
