@@ -32,14 +32,29 @@ jobs:
       - name: Move google-services.json
         run: mv ./temp/react_native/google-services.json ./android/app/
 
+
+      - name: Verify changes in gogle services
+        run: cat ./android/app/google-services.json
+
       - name: Move APPConstant
         run: mv ./temp/react_native/AppConstants.ts ./  
+
+      - name: Verify changes in app constant
+        run: cat ./AppConstants.ts
 
       - name: Copy APP build.gralde
         run: cp -f ./temp/react_native/app/build.gradle ./android/app/build.gradle
 
-      - name: Copy APP build.gralde
+      - name: Verify APP build.gralde
+        run: cat ./android/app/build.gradle
+        
+
+      - name: Copy build.gralde
         run: cp -f ./temp/react_native/build.gradle ./android/build.gradle
+
+
+      - name: Verify  build.gralde
+        run: cat ./android/build.gradle
 
 
       - name: Remove temp directory if exists
@@ -50,14 +65,14 @@ jobs:
       #     sed -i '/kotlin-gradle-plugin/a \ \ \ \ \ \ \ \ \ \ \ \ classpath('\''com.google.gms:google-services:4.4.1'\'')' ./android/build.gradle
 
 
-      - name: Verify changes in build.gralde
-        run: cat ./android/build.gradle      
+      # - name: Verify changes in build.gralde
+      #   run: cat ./android/build.gradle      
 
-      - name: Verify changes in app build.gradle
-        run: cat ./android/app/build.gradle
+      # - name: Verify changes in app build.gradle
+      #   run: cat ./android/app/build.gradle
 
-      - name: Verify changes in APp constants
-        run: cat ./android/app/build.gradle
+      # - name: Verify changes in APp constants
+      #   run: cat ./android/app/build.gradle
 
       - name: Check directory structure in android folder
         run: ls -R ./android
